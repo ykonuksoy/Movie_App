@@ -1,0 +1,5 @@
+<div class="categories">
+    <ul class="list-group">
+        <li *ngFor="let item of getItems(); let i =index;" class="list-group-item" (click)="clickEvent(i)"> {{ item.categories }}</li>
+    </ul>
+</div>

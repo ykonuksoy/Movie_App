@@ -1,0 +1,8 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+$font-family: Helvetica;
+$primary-color: #e9e9e9;
+body {
+    //@extend .mt-3;
+    font: 100% $font-family;
+    background-color: $primary-color
+}

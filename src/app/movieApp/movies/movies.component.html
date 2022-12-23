@@ -1,0 +1,24 @@
+<div class="movies">
+    <ul class="p-0">
+        <li *ngFor=" let item of getItems(); let i=index;">
+            <!-- <div class=" card mb-3" *ngIf='item.categories == "horror"'> -->
+            <div class="card mb-3">
+                <div class="row g-0 ">
+                    <div class="col-md-4 ">
+                        <img src="{{ item.images }} " class="img-fluid rounded-start " alt=" {{ item.images }} ">
+                    </div>
+                    <div class="col-md-8 ">
+
+                        <div class="card-body ">
+                            <h5 class="card-title ">{{ item.name }}</h5>
+                            <p class="card-text ">{{ item.description }}</p>
+                            <button type="button " class="btn btn-outline-secondary ">Detaylı bilgi</button>
+                            <p class="card-text mt-3 ">{{ item.categories }}</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
