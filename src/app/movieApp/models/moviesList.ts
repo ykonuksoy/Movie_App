@@ -1,5 +1,4 @@
-import { categoriesModel } from "../categories/categoriesModel"
-import { moviesModel } from "./movies"
+import { moviesModel } from "../models/movies"
 
 
 export class moviesList{
@@ -14,3 +13,5 @@ export class moviesList{
         ]
     }
 }
+
+

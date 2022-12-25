@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { moviesModel } from './movies';
-import { moviesList } from './moviesList';
+import { moviesModel } from '../models/movies';
+import { moviesList } from '../models/moviesList';
 import { CategoriesComponent } from '../categories/categories_component';
 import { categoriesModel } from '../categories/categoriesModel';
 
@@ -16,7 +16,7 @@ export class MoviesComponent {
 
 
   getItems(){
-    return this.model.items.filter(item => item.categories === item.categories);
+    return this.model.items;
   }
 
   

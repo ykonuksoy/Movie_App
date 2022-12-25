@@ -1,4 +1,4 @@
-import { categoriesModel } from "./categoriesModel";
+import { categoriesModel } from "../models/categoriesModel";
 
 export class CategoriesList{
     items: categoriesModel[]
