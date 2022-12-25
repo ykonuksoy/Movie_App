@@ -1,6 +1,11 @@
+<div class="input-group mb-3">
+    <input [(ngModel)]="filtreText" type="text" class="form-control" placeholder="Filtrele" aria-label="Recipient's username" aria-describedby="button-addon2">
+</div>
+<small class="text-muted" *ngIf="filtreText">Aradığınız kelime: {{filtreText}}</small>
+
 <div class="movies">
     <ul class="p-0">
-        <li *ngFor=" let item of getItems(); let i=index;">
+        <li *ngFor=" let item of getItems() | movieFilter:filtreText ; let i=index;">
             <!-- <div class=" card mb-3" *ngIf='item.categories == "horror"'> -->
             <div class="card mb-3">
                 <div class="row g-0 ">
@@ -11,11 +16,15 @@
 
                         <div class="card-body ">
                             <h5 class="card-title ">{{ item.name }}</h5>
-                            <p class="card-text ">{{ item.description }}</p>
+                            <!-- max 30 karakter -->
+                            <p class="card-text ">{{ item.description | summary: 30}}</p>
                             <button type="button " class="btn btn-outline-secondary ">Detaylı bilgi</button>
-                            <p class="card-text mt-3 ">{{ item.categories }}</p>
-
+                            <!-- <p class="card-text mt-3 ">{{ item.categories }}</p> -->
+                            <p class="mt-2 text-secondary">{{today | date}}</p>
                         </div>
+                        <!-- <p>{{ today }}</p> -->
+
+                        <!-- <p>{{today | date: 'fulldate'}}</p> -->
                     </div>
                 </div>
             </div>

@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './movieApp/navbar/navbar.component';
 import { CategoriesComponent } from './movieApp/categories/categories_component';
 import { MoviesComponent } from './movieApp/movies/movies.component';
+import { SummaryPipe } from './movieApp/pipes/summary.pipes';
+import { movieFilter } from './movieApp/pipes/movieFilter.pipes';
 
 
 @NgModule({
@@ -15,11 +17,13 @@ import { MoviesComponent } from './movieApp/movies/movies.component';
   //  TodoComponent,
     NavbarComponent,
     CategoriesComponent,
-    MoviesComponent
+    MoviesComponent,
+    SummaryPipe,
+    movieFilter
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [
