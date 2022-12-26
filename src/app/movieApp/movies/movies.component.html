@@ -1,11 +1,10 @@
 <div class="input-group mb-3">
-    <input [(ngModel)]="filtreText" type="text" class="form-control" placeholder="Filtrele" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <input [(ngModel)]="filtreText" type="text" (ngModelChange)="onInputChange()" class="form-control" placeholder="Filtrele" aria-label="Recipient's username" aria-describedby="button-addon2">
 </div>
 <small class="text-muted" *ngIf="filtreText">Aradığınız kelime: {{filtreText}}</small>
-
 <div class="movies">
     <ul class="p-0">
-        <li *ngFor=" let item of getItems() | movieFilter:filtreText ; let i=index;">
+        <li *ngFor=" let item of onInputChange(); let i=index;">
             <!-- <div class=" card mb-3" *ngIf='item.categories == "horror"'> -->
             <div class="card mb-3">
                 <div class="row g-0 ">
