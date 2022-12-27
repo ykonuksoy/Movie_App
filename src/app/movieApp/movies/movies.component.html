@@ -17,7 +17,8 @@
                             <h5 class="card-title ">{{ item.name }}</h5>
                             <!-- max 30 karakter -->
                             <p class="card-text ">{{ item.description | summary: 30}}</p>
-                            <button type="button " class="btn btn-outline-secondary ">Detaylı bilgi</button>
+                            <button type="button" class="btn btn-outline-secondary ">Detaylı bilgi</button>
+                            <button type="button" (click)="addToList($event, item)" class="btn btn-outline-secondary ">Listeye Ekle</button>
                             <!-- <p class="card-text mt-3 ">{{ item.categories }}</p> -->
                             <p class="mt-2 text-secondary">{{today | date}}</p>
                         </div>
