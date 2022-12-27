@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoriesList } from '../models/categoriesList';
+import { categoriesModel } from '../models/categoriesModel';
 
 @Component({
   selector: 'app-categories',
@@ -8,17 +9,20 @@ import { CategoriesList } from '../models/categoriesList';
 })
 export class CategoriesComponent {
 
-  items: CategoriesList[] = []
+  items: CategoriesList[] = [] // kategori listesindeki itemleri çekmek istediğimiz için bu dizi listesini array olarak tanıtmalıyız.
+  selected :any;
+  
+  model = new CategoriesList(); // categori listesini kullanacağı için categori modülünü kullanan listeyi çağırmalıyız. buradan içerisindeki itemslara ulaşacağız.
 
-  model = new CategoriesList();
   getItems(){
     return this.model.items;
-    
   }
-  clickEvent(i: any){
-    const checkCategory = this.getItems()[i].categories;
-    console.log(checkCategory);
+  clickEvent(item: categoriesModel){ // göndereceği değerin tipi categori olduğu için modülü çağırmalıyız.
+      this.selected = item; 
   }
+  isActive(item: categoriesModel) { // göndereceği değerin tipi categori olduğu için modülü çağırmalıyız.
+    return this.selected === item;
+  };
 }
 
 
