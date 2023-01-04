@@ -9,6 +9,10 @@ import { CategoriesComponent } from './movieApp/categories/categories_component'
 import { MoviesComponent } from './movieApp/movies/movies.component';
 import { SummaryPipe } from './movieApp/pipes/summary.pipes';
 import { movieFilter } from './movieApp/pipes/movieFilter.pipes';
+import { AlertifyService } from './movieApp/services/alertify.service';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 @NgModule({
@@ -23,9 +27,12 @@ import { movieFilter } from './movieApp/pipes/movieFilter.pipes';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AlertifyService
+  ],
   bootstrap: [
     AppComponent,
   //  TodoComponent,

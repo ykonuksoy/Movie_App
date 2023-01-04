@@ -5,10 +5,10 @@ export class CategoriesList{
 
     constructor(){
         this.items =  [
-            {categories: "Korku Filmi"},
-            {categories: "Gerilim"},
-            {categories: "Macera"},
-            {categories: "Romantik"},
+            //{categories: "Korku Filmi"},
+            //{categories: "Gerilim"},
+            //{categories: "Macera"},
+            //{categories: "Romantik"},
         ]
     }
 }

@@ -1,5 +1,5 @@
 <div class="categories">
     <ul class="list-group">
-        <li *ngFor="let item of getItems(); let i =index;" class="list-group-item" (click)="clickEvent(item)" [ngClass]="{active: isActive(item)}"> {{ item.categories }}</li>
+        <li *ngFor="let item of getCategories(); let i =index;" class="list-group-item" (click)="clickEvent(item)" [ngClass]="{active: isActive(item)}"> {{ item.categories }}</li>
     </ul>
 </div>
