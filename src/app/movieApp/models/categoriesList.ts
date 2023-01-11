@@ -11,4 +11,7 @@ export class CategoriesList{
             //{categories: "Romantik"},
         ]
     }
+    getCategories(): categoriesModel[]{
+        return this.items
+    }
 }

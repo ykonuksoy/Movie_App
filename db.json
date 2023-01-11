@@ -1,17 +1,68 @@
 {
-    "movies": [
-        { "id": 1, "description": "lorem ipsum dolar sit amet", "name": "film 1", "categories": "horror", "images": "../../../assets/img/600x314.png" },
-        { "id": 2, "description": "lorem ipsum dolar sit amet", "name": "film 2", "categories": "horror", "images": "../../../assets/img/600x314.png" },
-        { "id": 3, "description": "lorem ipsum dolar sit amet", "name": "film 3", "categories": "horror", "images": "../../../assets/img/600x314.png" },
-        { "id": 4, "description": "lorem ipsum dolar sit amet", "name": "film 4", "categories": "horror", "images": "../../../assets/img/600x314.png" },
-        { "id": 5, "description": "lorem ipsum dolar sit amet", "name": "film 5", "categories": "horror", "images": "../../../assets/img/600x314.png" },
-        { "id": 6, "description": "lorem ipsum dolar sit amet", "name": "film 6", "categories": "horror", "images": "../../../assets/img/600x314.png" }
+    "movies": [{
+            "id": 1,
+            "description": "lorem ipsum dolar sit amet",
+            "name": "film 1",
+            "categories": "horror",
+            "images": "../../../assets/img/600x314.png",
+            "categoryId": 1
+        },
+        {
+            "id": 2,
+            "description": "lorem ipsum dolar sit amet",
+            "name": "film 2",
+            "categories": "horror",
+            "images": "../../../assets/img/600x314.png",
+            "categoryId": 2
+        },
+        {
+            "id": 3,
+            "description": "lorem ipsum dolar sit amet",
+            "name": "film 3",
+            "categories": "horror",
+            "images": "../../../assets/img/600x314.png",
+            "categoryId": 3
+        },
+        {
+            "id": 4,
+            "description": "lorem ipsum dolar sit amet",
+            "name": "film 4",
+            "categories": "horror",
+            "images": "../../../assets/img/600x314.png",
+            "categoryId": 4
+        },
+        {
+            "id": 5,
+            "description": "lorem ipsum dolar sit amet",
+            "name": "film 5",
+            "categories": "horror",
+            "images": "../../../assets/img/600x314.png",
+            "categoryId": 5
+        },
+        {
+            "id": 6,
+            "description": "lorem ipsum dolar sit amet",
+            "name": "film 6",
+            "categories": "horror",
+            "images": "../../../assets/img/600x314.png",
+            "categoryId": 6
+        }
     ],
-    "categories": [
-        { "id": 1, "categories": "Korku Filmi" },
-        { "id": 2, "categories": "Gerilim" },
-        { "id": 3, "categories": "Macera" },
-        { "id": 4, "categories": "Romantik" }
+    "categories": [{
+            "id": 1,
+            "categories": "Korku Filmi"
+        },
+        {
+            "id": 2,
+            "categories": "Gerilim"
+        },
+        {
+            "id": 3,
+            "categories": "Macera"
+        },
+        {
+            "id": 4,
+            "categories": "Romantik"
+        }
     ]
-
 }

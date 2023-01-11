@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CategoriesList } from '../models/categoriesList';
 import { categoriesModel } from '../models/categoriesModel';
 import CategoryService from '../services/categories.service';
+import { HttpParameterCodec } from "@angular/common/http";
+
 
 @Component({
   selector: 'app-categories',
@@ -12,23 +14,18 @@ import CategoryService from '../services/categories.service';
 })
 export class CategoriesComponent {
 
+  items: categoriesModel[] = [] // kategori listesindeki itemleri çekmek istediğimiz için bu dizi listesini array olarak tanıtmalıyız.
+  selected :any;
+
   constructor(
     private CategoryService: CategoryService){}
 
   ngOnInit(): void{
     this.CategoryService.getCategories().subscribe(data => {
-      this.model.items = data
+      this.items = data
     })
   }
 
-  items: CategoriesList[] = [] // kategori listesindeki itemleri çekmek istediğimiz için bu dizi listesini array olarak tanıtmalıyız.
-  selected :any;
-  
-  model = new CategoriesList(); // categori listesini kullanacağı için categori modülünü kullanan listeyi çağırmalıyız. buradan içerisindeki itemslara ulaşacağız.
-
-  getCategories(){
-    return this.model.items;
-  }
   clickEvent(item: categoriesModel){ // göndereceği değerin tipi categori olduğu için modülü çağırmalıyız.
       this.selected = item; 
   }

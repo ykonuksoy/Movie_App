@@ -1,0 +1,22 @@
+<div *ngIf="movie else noMovie">
+    <h2>Film Detay</h2>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="assets/img/{{ movie.images }}" class="img-fluid rounded-start" alt="">
+            </div>
+            <div class="col-md-8">
+
+                <div class="card-body">
+                    <h1 class="card-title">{{ movie.name }}</h1>
+                    <p class="card-text">{{ movie.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #noMovie>
+    <div class="alert alert-warning" role="alert">
+        Film açıklaması bulunamadı
+    </div>
+</ng-template>

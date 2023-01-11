@@ -12,6 +12,7 @@ export class moviesList{
             //{description: "lorem ipsum dolar sit amet" ,name: "film 4", categories: "romance", images: "../../../assets/img/600x314.png"},
         ]
     }
+ 
 }
 
 

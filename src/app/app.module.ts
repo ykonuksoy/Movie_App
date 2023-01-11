@@ -11,6 +11,9 @@ import { SummaryPipe } from './movieApp/pipes/summary.pipes';
 import { movieFilter } from './movieApp/pipes/movieFilter.pipes';
 import { AlertifyService } from './movieApp/services/alertify.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { movieDetailsComponent } from './movieApp/movie_details/movieDetais.component';
+import { MovieCreateComponent } from './movieApp/movie-create/movie-create.component';
 
 
 
@@ -22,13 +25,16 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     CategoriesComponent,
     MoviesComponent,
+    movieDetailsComponent,
     SummaryPipe,
-    movieFilter
+    movieFilter,
+    MovieCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     AlertifyService
@@ -38,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
   //  TodoComponent,
     NavbarComponent,
     CategoriesComponent,
+    movieDetailsComponent,
     MoviesComponent
   ]
 })

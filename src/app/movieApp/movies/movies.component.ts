@@ -3,6 +3,7 @@ import { moviesModel } from '../models/movies';
 import { moviesList } from '../models/moviesList';
 import { AlertifyService } from '../services/alertify.service';
 import MovieService from '../services/movie.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -14,13 +15,18 @@ import MovieService from '../services/movie.service';
 export class MoviesComponent implements OnInit {
   constructor(
     private alertify: AlertifyService, 
-    private MovieService: MovieService){}
+    private MovieService: MovieService,
+    private activatedRoute: ActivatedRoute){}
 
   ngOnInit():void{
-    this.MovieService.getItems().subscribe(data => { // async bir sorgudan bize gelecek olan yanıtın ne zaman geleceğini bilemeyiz. o yüzden burada bekletmemiz gerekebilir
-      this._getMovies = data;
-    }); 
-    
+    this.activatedRoute.params.subscribe(params => {
+      //console.log(params["categoryId"]);
+      this.MovieService.getItems(params["categoryId"]).subscribe(data => { // async bir sorgudan bize gelecek olan yanıtın ne zaman geleceğini bilemeyiz. o yüzden burada bekletmemiz gerekebilir
+        this._getMovies = data;
+      }, error => this.error = error); 
+    });
+
+
   }
 
   items: moviesList[] = []
@@ -28,6 +34,7 @@ export class MoviesComponent implements OnInit {
   today = new Date();
   filtreText: string = "";
   result: moviesList[] = []
+  error: any;
 
   private _getMovies = this.getItems();
   
@@ -39,8 +46,10 @@ export class MoviesComponent implements OnInit {
   }
 
 
+
   getItems(){
     return this.model.items;
+    
   }
   onInputChange(){
     //this.filtreText = this.filtreText.toLocaleLowerCase();

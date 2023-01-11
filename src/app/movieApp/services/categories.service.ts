@@ -9,5 +9,5 @@ import { categoriesModel } from "../models/categoriesModel";
 
     getCategories(): Observable<categoriesModel[]>{
         return this.http.get<categoriesModel[]>(this.url);
-    }
+    }    
 }
