@@ -8,30 +8,35 @@
         {{ error }}
     </div>
     <ul class="p-0">
-        <li *ngFor=" let item of onInputChange(); let i=index;">
-            <!-- <div class=" card mb-3" *ngIf='item.categories == "horror"'> -->
-            <div class="card mb-3">
-                <div class="row g-0 ">
-                    <div class="col-md-4 ">
-                        <img src="{{ item.images }} " class="img-fluid rounded-start " alt=" {{ item.images }} ">
-                    </div>
-                    <div class="col-md-8 ">
-
-                        <div class="card-body ">
-                            <h5 class="card-title ">{{ item.name }}</h5>
-                            <!-- max 30 karakter -->
-                            <p class="card-text ">{{ item.description | summary: 30}}</p>
-                            <a class="btn btn-outline-secondary" routerLink="/movies/{{ item.id }}" routerLinkActive="router-link-active">Detaylı bilgi</a>
-                            <button type="button" (click)="addToList($event, item)" class="btn btn-outline-secondary ">Listeye Ekle</button>
-                            <!-- <p class="card-text mt-3 ">{{ item.categories }}</p> -->
-                            <!-- <p class="mt-2 text-secondary">{{today | date}}</p> -->
+        <div *ngIf="!loading">
+            <li *ngFor=" let item of onInputChange(); let i=index;">
+                <!-- <div class=" card mb-3" *ngIf='item.categories == "horror"'> -->
+                <div class="card mb-3">
+                    <div class="row g-0 ">
+                        <div class="col-md-4 ">
+                            <img src="{{ item.images }} " class="img-fluid rounded-start " alt=" {{ item.images }} ">
                         </div>
-                        <!-- <p>{{ today }}</p> -->
+                        <div class="col-md-8 ">
 
-                        <!-- <p>{{today | date: 'fulldate'}}</p> -->
+                            <div class="card-body ">
+                                <h5 class="card-title ">{{ item.name }}</h5>
+                                <!-- max 30 karakter -->
+                                <p class="card-text ">{{ item.description | summary: 30}}</p>
+                                <a class="btn btn-outline-secondary" routerLink="/movies/{{ item.id }}" routerLinkActive="router-link-active">Detaylı bilgi</a>
+                                <button type="button" (click)="addToList($event, item)" class="btn btn-outline-secondary ">Listeye Ekle</button>
+                                <!-- <p class="card-text mt-3 ">{{ item.categories }}</p> -->
+                                <!-- <p class="mt-2 text-secondary">{{today | date}}</p> -->
+                            </div>
+                            <!-- <p>{{ today }}</p> -->
+
+                            <!-- <p>{{today | date: 'fulldate'}}</p> -->
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
+            </li>
+        </div>
     </ul>
+</div>
+<div class="spinner-border text-secondary" role="status" *ngIf="loading">
+    <span class="visually-hidden">Loading...</span>
 </div>

@@ -1,5 +1,5 @@
 export interface categoriesModel{
-    id:string;
+    id:any;
     categories: string;
 }
 

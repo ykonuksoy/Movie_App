@@ -1,0 +1,9 @@
+input.ng-dirty.ng-valid,
+textarea.ng-dirty.ng-valid {
+    background-color: aquamarine !important;
+}
+
+.form-control.ng-pristine.ng-invalid.ng-touched,
+.form-control.ng-invalid.ng-dirty.ng-touched {
+    background-color: red !important;
+}

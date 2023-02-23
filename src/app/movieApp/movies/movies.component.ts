@@ -19,14 +19,15 @@ export class MoviesComponent implements OnInit {
     private activatedRoute: ActivatedRoute){}
 
   ngOnInit():void{
+    this.loading = true;
     this.activatedRoute.params.subscribe(params => {
       //console.log(params["categoryId"]);
       this.MovieService.getItems(params["categoryId"]).subscribe(data => { // async bir sorgudan bize gelecek olan yanıtın ne zaman geleceğini bilemeyiz. o yüzden burada bekletmemiz gerekebilir
+        this.loading = false;
         this._getMovies = data;
-      }, error => this.error = error); 
+      }, error =>
+       this.error = error); 
     });
-
-
   }
 
   items: moviesList[] = []
@@ -35,6 +36,7 @@ export class MoviesComponent implements OnInit {
   filtreText: string = "";
   result: moviesList[] = []
   error: any;
+  loading: boolean = false;
 
   private _getMovies = this.getItems();
   

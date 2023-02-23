@@ -4,6 +4,7 @@ import { categoriesModel } from '../models/categoriesModel';
 import MovieService from '../services/movie.service';
 import { Router } from '@angular/router';
 import { AlertifyService } from '../services/alertify.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-create',
@@ -14,35 +15,41 @@ import { AlertifyService } from '../services/alertify.service';
 export class MovieCreateComponent implements OnInit{
  //categories: categoriesModel[] = [];
  categories: any;
+ model:any = {
+   categoryId: "-1"
+ };
+
  constructor(private categoryService: CategoryService, private movieService: MovieService, private router: Router, private alertify: AlertifyService){}
  ngOnInit():void{
     this.categoryService.getCategories().subscribe(data=>{
       this.categories = data;
     })
  }
- createMovie(name:any, description:any, images:any, categoryId:any){
-  /* console.log(name.value);
-   console.log(description. value)
-   console.log(images.value)
-   console.log(categoryId.value)*/
+ 
+ createMovie(form: NgForm){
+  console.log(this.model);
+  console.log(form);
 
-  const movie = {id:0, categories:this.categories.value, name:name.value, description:description.value, images:images.value, categoryId:categoryId.value};
+   const extansions = ["jpeg","jpg","png"];
+  let extansion = this.model.images.split('.').pop();
 
-  if(name.value === "" || description.value === "" || images.value === "" || categoryId.value === "-1"){
-    this.alertify.error("boş bırakılamaz");
-    return;
-  }
-  const extansions = ["jpeg","jpg","png"];
-  const extansion = images.value.split('.').pop();
+  const movie = {id:0, categories:this.model.categories, name:this.model.name, description:this.model.description, images:this.model.images, categoryId:this.model.categoryId};
 
   if(extansions.indexOf(extansion) === -1){
     this.alertify.error("sadece jpg, png, gif kabul edilebilir");
     return;
   }
 
-  this.movieService.createMovie(movie).subscribe(data => 
-    //this.router.navigate(['/movies']));
-    this.router.navigate(['/movies', data.id]));
- }
+  else{
+    this.movieService.createMovie(movie).subscribe(data => 
+      //this.router.navigate(['/movies']));
+      this.router.navigate(['/movies'])); 
+  
+      console.log(movie)
+  
+   }
+  }
+
+
 
 }

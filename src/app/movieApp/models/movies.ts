@@ -1,5 +1,5 @@
 export interface moviesModel{
-    id: number;
+    id: any;
     categories: string;
     name: string;
     description: string;

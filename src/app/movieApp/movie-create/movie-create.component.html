@@ -1,27 +1,30 @@
 <h1>Create Movie</h1>
 
-<form>
+<form #form="ngForm" (ngSubmit)="createMovie(form)">
     <div class="mb-3">
         <label for="name" class="form-label">Title</label>
-        <input #name type="text" class="form-control">
+        <input #name="ngModel" required minlength="5" type="text" class="form-control" [(ngModel)]="model.name" name="name">
+        <div class="alert alert-danger" *ngIf="name.invalid && name.touched">boş bırakılamaz, en az 8 karakter </div>
     </div>
 
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea #description class="form-control"></textarea>
+        <textarea required minlength="8" class="form-control" [(ngModel)]="model.description" name="description"></textarea>
     </div>
 
     <div class="mb-3">
-        <label for="images" class="form-label">images</label>
-        <input #images type="text" class="form-control">
+        <label class="form-label" for="customFile">Default file input example</label>
+        <!-- <input type="file" required class="form-control" [(ngModel)]="model.images" name="images" id="customFile" /> -->
+        <input #name="ngModel" required minlength="5" type="text" class="form-control" [(ngModel)]="model.images" name="images" placeholder="assets/img/600x314.png">
     </div>
 
     <div class="mb-3">
         <label for="categoryId" class="form-label">category</label>
-        <select #categoryId class="form-select">
+        <select class="form-select" required [(ngModel)]="model.categoryId" name="categoryId">
+            <option value="-1">Seçiniz</option>
             <option  *ngFor="let item of categories" [value]="item.id">{{item.categories}}</option>
         </select>
     </div>
-    <button class="btn btn-primary" (click)="createMovie(name, description, images, categoryId)">Create</button>
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Create</button>
 
 </form>

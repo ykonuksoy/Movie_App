@@ -1,0 +1,9 @@
+<form (ngSubmit)="createCategory()">
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Category Name</label>
+        <input #name type="text" class="form-control" [(ngModel)]="model.categories">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Create</button>
+</form>
