@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { movieDetailsComponent } from './movieApp/movie_details/movieDetais.component';
 import { MovieCreateComponent } from './movieApp/movie-create/movie-create.component';
 import { CategoryCreateComponent } from './movieApp/category-create/category-create.component';
+import { AuthComponent } from './movieApp/auth/auth.component';
 
 
 
@@ -30,7 +31,8 @@ import { CategoryCreateComponent } from './movieApp/category-create/category-cre
     SummaryPipe,
     movieFilter,
     MovieCreateComponent,
-    CategoryCreateComponent
+    CategoryCreateComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

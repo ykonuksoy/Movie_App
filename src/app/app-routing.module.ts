@@ -6,6 +6,7 @@ import { movieDetailsComponent } from './movieApp/movie_details/movieDetais.comp
 import { movieFilter } from './movieApp/pipes/movieFilter.pipes';
 import { MovieCreateComponent } from './movieApp/movie-create/movie-create.component';
 import { CategoryCreateComponent } from './movieApp/category-create/category-create.component';
+import { AuthComponent } from './movieApp/auth/auth.component';
 
 const routes: Routes = [
   { path: 'movies', component: MoviesComponent }, // çağıracağımız url path i ile çağıracağımız component'i eşleştiriyoruz. 
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'movies/category/:categoryId', component: MoviesComponent },
   { path: 'movies/create', component: MovieCreateComponent },
   { path: 'movies/:movieId', component: movieDetailsComponent },
-  { path: 'categories/create', component: CategoryCreateComponent }
+  { path: 'categories/create', component: CategoryCreateComponent },
+  { path: 'auth', component: AuthComponent }
 
  
 ];
