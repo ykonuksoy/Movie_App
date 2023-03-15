@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -9,12 +11,12 @@ import { AuthService } from '../services/auth.service';
 })
 export class AuthComponent {
   loading: boolean = false;
+  error: string ="";
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
   ngOnInit(): void{
  
-
   }
 
   onSubmit(form: NgForm){
@@ -28,14 +30,9 @@ export class AuthComponent {
     this.authService.signUp(email, password).subscribe(Response => {
       console.log(Response);
     }, err => {
-      console.log(err);
+      this.error = err;
     })
 
-    this.authService.login(email, password).subscribe(Response => {
-      console.log(Response);
-    }, err => {
-      console.log(err);
-    })
   }
 
   onLogin(form: NgForm){
@@ -51,8 +48,9 @@ export class AuthComponent {
     this.authService.login(email, password).subscribe(Response => {
       console.log(Response);
       this.loading = false;
-
+      this.router.navigate(['/movies'])
     }, err => {
+      this.error = err;
       console.log(err);
     })
     form.reset();

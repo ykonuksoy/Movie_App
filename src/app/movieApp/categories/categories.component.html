@@ -1,6 +1,6 @@
 <div class="categories">
     <ul class="list-group">
-        <li *ngFor="let item of items let i =index;" routerLink="movies/category/{{ item.id }}" routerLinkActive="router-link-active" class="list-group-item" (click)="clickEvent(item) " [ngClass]="{active: isActive(item)} "> {{ item.categories }}</li>
+        <li *ngFor="let item of items let i =index;" routerLink="/movies/category/{{ item.id }}" routerLinkActive="router-link-active" class="list-group-item" (click)="clickEvent(item) " [ngClass]="{active: isActive(item)} "> {{ item.categories }}</li>
     </ul>
 
 </div>

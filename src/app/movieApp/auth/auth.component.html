@@ -10,6 +10,9 @@
     </div>
     <button type="submit" class="btn btn-primary">sign up</button>
 </form>
+<div *ngIf="error" class="alert alert-danger">
+    {{ error }}
+</div>
 <br><br>
 <h2>Login</h2>
 

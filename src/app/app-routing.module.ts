@@ -7,10 +7,12 @@ import { movieFilter } from './movieApp/pipes/movieFilter.pipes';
 import { MovieCreateComponent } from './movieApp/movie-create/movie-create.component';
 import { CategoryCreateComponent } from './movieApp/category-create/category-create.component';
 import { AuthComponent } from './movieApp/auth/auth.component';
+import { CategoriesComponent } from './movieApp/categories/categories_component';
 
 const routes: Routes = [
   { path: 'movies', component: MoviesComponent }, // çağıracağımız url path i ile çağıracağımız component'i eşleştiriyoruz. 
-  { path: '', redirectTo: 'movies', pathMatch: 'full'}, // hiç bir şey seçili olmazsa movies path'i çağrılsın diyoruz.
+  { path: '', redirectTo: 'auth', pathMatch: 'full'}, // hiç bir şey seçili olmazsa movies path'i çağrılsın diyoruz.
+  { path: 'categories', component: CategoriesComponent },
   { path: 'movies/category/:categoryId', component: MoviesComponent },
   { path: 'movies/create', component: MovieCreateComponent },
   { path: 'movies/:movieId', component: movieDetailsComponent },

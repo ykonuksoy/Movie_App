@@ -1,42 +1,49 @@
-<div class="input-group mb-3">
-    <input [(ngModel)]="filtreText" type="text" (ngModelChange)="onInputChange()" class="form-control" placeholder="Filtrele" aria-label="Recipient's username" aria-describedby="button-addon2">
-</div>
-<small class="text-muted" *ngIf="filtreText">Aradığınız kelime: {{filtreText}}</small>
-<div class="movies">
-    <div class="alert alert-danger" *ngIf="error">
-        <!-- Oops! Something get Wrong -->
-        {{ error }}
+<div class="row">
+    <div class="col-md-3">
+        <app-categories></app-categories>
     </div>
-    <ul class="p-0">
-        <div *ngIf="!loading">
-            <li *ngFor=" let item of onInputChange(); let i=index;">
-                <!-- <div class=" card mb-3" *ngIf='item.categories == "horror"'> -->
-                <div class="card mb-3">
-                    <div class="row g-0 ">
-                        <div class="col-md-4 ">
-                            <img src="{{ item.images }} " class="img-fluid rounded-start " alt=" {{ item.images }} ">
-                        </div>
-                        <div class="col-md-8 ">
-
-                            <div class="card-body ">
-                                <h5 class="card-title ">{{ item.name }}</h5>
-                                <!-- max 30 karakter -->
-                                <p class="card-text ">{{ item.description | summary: 30}}</p>
-                                <a class="btn btn-outline-secondary" routerLink="/movies/{{ item.id }}" routerLinkActive="router-link-active">Detaylı bilgi</a>
-                                <button type="button" (click)="addToList($event, item)" class="btn btn-outline-secondary ">Listeye Ekle</button>
-                                <!-- <p class="card-text mt-3 ">{{ item.categories }}</p> -->
-                                <!-- <p class="mt-2 text-secondary">{{today | date}}</p> -->
-                            </div>
-                            <!-- <p>{{ today }}</p> -->
-
-                            <!-- <p>{{today | date: 'fulldate'}}</p> -->
-                        </div>
-                    </div>
-                </div>
-            </li>
+    <div class="col-md-9">
+        <div class="input-group mb-3">
+            <input [(ngModel)]="filtreText" type="text" (ngModelChange)="onInputChange()" class="form-control" placeholder="Filtrele" aria-label="Recipient's username" aria-describedby="button-addon2">
         </div>
-    </ul>
-</div>
-<div class="spinner-border text-secondary" role="status" *ngIf="loading">
-    <span class="visually-hidden">Loading...</span>
+        <small class="text-muted" *ngIf="filtreText">Aradığınız kelime: {{filtreText}}</small>
+        <div class="movies">
+            <div class="alert alert-danger" *ngIf="error">
+                <!-- Oops! Something get Wrong -->
+                {{ error }}
+            </div>
+            <ul class="p-0">
+                <div *ngIf="!loading">
+                    <li *ngFor=" let item of onInputChange(); let i=index;">
+                        <!-- <div class=" card mb-3" *ngIf='item.categories == "horror"'> -->
+                        <div class="card mb-3">
+                            <div class="row g-0 ">
+                                <div class="col-md-4 ">
+                                    <img src="{{ item.images }} " class="img-fluid rounded-start " alt=" {{ item.images }} ">
+                                </div>
+                                <div class="col-md-8 ">
+
+                                    <div class="card-body ">
+                                        <h5 class="card-title ">{{ item.name }}</h5>
+                                        <!-- max 30 karakter -->
+                                        <p class="card-text ">{{ item.description | summary: 30}}</p>
+                                        <a class="btn btn-outline-secondary" routerLink="/movies/{{ item.id }}" routerLinkActive="router-link-active">Detaylı bilgi</a>
+                                        <button type="button" (click)="addToList($event, item)" class="btn btn-outline-secondary ">Listeye Ekle</button>
+                                        <!-- <p class="card-text mt-3 ">{{ item.categories }}</p> -->
+                                        <!-- <p class="mt-2 text-secondary">{{today | date}}</p> -->
+                                    </div>
+                                    <!-- <p>{{ today }}</p> -->
+
+                                    <!-- <p>{{today | date: 'fulldate'}}</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <div class="spinner-border text-secondary" role="status" *ngIf="loading">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
 </div>
