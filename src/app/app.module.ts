@@ -17,6 +17,7 @@ import { MovieCreateComponent } from './movieApp/movie-create/movie-create.compo
 import { CategoryCreateComponent } from './movieApp/category-create/category-create.component';
 import { AuthComponent } from './movieApp/auth/auth.component';
 import { AuthInterceptor } from './movieApp/services/auth.interceptor';
+import { MoviesHomeComponent } from './movieApp/movies/movies-home/movies-home.component';
 
 
 
@@ -33,7 +34,8 @@ import { AuthInterceptor } from './movieApp/services/auth.interceptor';
     movieFilter,
     MovieCreateComponent,
     CategoryCreateComponent,
-    AuthComponent
+    AuthComponent,
+    MoviesHomeComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@
                 <a [routerLink]="['/auth']" routerLinkActive="router-link-active"  class="nav-link" [routerLink]="['/auth']">Login</a>
             </span>
             <span class="navbar-text" *ngIf="isAuthenticated">
-                <a [routerLink]="['/logout']" routerLinkActive="router-link-active"  class="nav-link" [routerLink]="['/auth']">Log Out</a>
+                <a [routerLink]="['/logout']" routerLinkActive="router-link-active"  class="nav-link" [routerLink]="['/auth']" (click)="logOutJob()">Log Out</a>
             </span>
         </div>
     </div>
